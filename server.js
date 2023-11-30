@@ -9,7 +9,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: 'https://live-polling-2023.netlify.app',
     methods: ['GET', 'POST'],
   },
 });
@@ -51,7 +51,7 @@ let votingData = {};
 
 // Endpoint to get poll questions
 app.get('/poll', (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+  res.header('Access-Control-Allow-Origin', 'https://live-polling-2023.netlify.app');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.json(pollQuestions);
@@ -59,7 +59,7 @@ app.get('/poll', (req, res) => {
 
 // Endpoint to get the current leaderboard data
 app.get('/leaderboard', async (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+  res.header('Access-Control-Allow-Origin', 'https://live-polling-2023.netlify.app');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
