@@ -39,25 +39,30 @@ const pollQuestions = [
   {
     id: 1,
     question: 'What is your preference for owning a Car ?',
-    options: ['JHigher safety rating and moderate driving experience.', ' Better driving experience and lower safety rating'],
+    options: ['Higher safety rating and moderate driving experience.', ' Better driving experience and lower safety rating'],
   },
   {
     id: 2,
+    question: 'What is your preference for owning a Car ?',
+    options: ['Higher safety rating and moderate driving experience.', ' Better driving experience and lower safety rating'],
+  },
+  {
+    id: 3,
     question: 'As annual performance rewards, what would you prefer ?',
     options: ['Gift Voucher worth INR 50,000', 'International group tour of top performers'],
   },
   {
-    id: 3,
+    id: 4,
     question: 'How would you like to have format of  "Champions Talk" ?',
     options: ['Continue with format of 90 minutes virtual interaction', 'Face to face interaction with leaders at HO and brainstorming for critical projects'],
   },
   {
-    id: 4,
+    id: 5,
     question: 'What are your views on technology tool usage in daily working ?',
     options: ['Need for upgraded tabs with higher performance', ' Current technological tool is good enough'],
   },
   {
-    id: 5,
+    id: 6,
     question: 'What is your view on time spent on meeting/calls ?',
     options: ['Reduce number of hours spent in meeting and calls', 'Current engagement level is optimum'],
   },
