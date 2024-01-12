@@ -4,14 +4,14 @@ const socketIo = require('socket.io');
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config(); // Load environment variables from .env file
-// const host = 'https://live-polling-2023.netlify.app';
+const host = 'https://live-polling-2023.netlify.app';
 // const host = 'http://localhost:5173';
 
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: 'https://live-polling-2023.netlify.app',
+    origin: `${host}`,
     methods: ['GET', 'POST'],
   },
 });
@@ -38,34 +38,50 @@ const Vote = mongoose.model('Vote', voteSchema);
 const pollQuestions = [
   {
     id: 1,
-    question: 'What is your preference for owning a Car ?',
-    options: ['Higher safety rating and moderate driving experience.', ' Better driving experience and lower safety rating'],
+    question: "What's your preferred weekend activity ?",
+    options: [' Netflix binge', 'Outdoor adventure', 'Reading a book'],
   },
   {
     id: 2,
-    question: 'What is your preference for owning a Car ?',
-    options: ['Higher safety rating and moderate driving experience.', ' Better driving experience and lower safety rating'],
+    question: 'When it comes to pets, are you Team',
+    options: ['Dog', 'cat','others'],
   },
   {
     id: 3,
-    question: 'As annual performance rewards, what would you prefer ?',
-    options: ['Gift Voucher worth INR 50,000', 'International group tour of top performers'],
+    question: "What's your ideal vacation destination?",
+    options: ['Beach resort', 'Mountain retreat','City exploration'],
   },
   {
     id: 4,
-    question: 'How would you like to have format of  "Champions Talk" ?',
-    options: ['Continue with format of 90 minutes virtual interaction', 'Face to face interaction with leaders at HO and brainstorming for critical projects'],
+    question: 'In a karaoke battle, would you choose to sing',
+    options: ['Rock', 'Pop','Classic ballads'],
   },
   {
     id: 5,
-    question: 'What are your views on technology tool usage in daily working ?',
-    options: ['Need for upgraded tabs with higher performance', ' Current technological tool is good enough'],
+    question: 'For a movie night, do you prefer watching',
+    options: ['Comedy', 'Action','Romantic movies'],
   },
   {
     id: 6,
-    question: 'What is your view on time spent on meeting/calls ?',
-    options: ['Reduce number of hours spent in meeting and calls', 'Current engagement level is optimum'],
+    question: 'When faced with a challenge, are you more likely to approach it',
+    options: ['Strategically', 'Emotionally','Creatively'],
   },
+  {
+    id: 7,
+    question: "What's your favorite season?",
+    options: ['Spring', 'Summer','Winter'],
+  },
+  {
+    id: 8,
+    question: "In a dessert showdown, would you go for",
+    options: ['Chocolate cake', 'Fruit tart','Ice cream'],
+  },
+  {
+    id: 9,
+    question: "How do you take your coffee?",
+    options: ['Black', 'With cream','Mocha with all the toppings.'],
+  },
+
 ];
 
 // In-memory store for voting data
@@ -73,7 +89,7 @@ let votingData = {};
 
 // Endpoint to get poll questions
 app.get('/poll', (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'https://live-polling-2023.netlify.app');
+  res.header('Access-Control-Allow-Origin', `${host}`);
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.json(pollQuestions);
@@ -81,7 +97,7 @@ app.get('/poll', (req, res) => {
 
 // Endpoint to get the current leaderboard data
 app.get('/leaderboard', async (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'https://live-polling-2023.netlify.app');
+  res.header('Access-Control-Allow-Origin', `${host}`);
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
